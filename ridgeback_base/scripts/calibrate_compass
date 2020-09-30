@@ -19,7 +19,7 @@ if [[ "$?" != "0" ]]; then
   exit 1
 fi
 
-rosbag record /tf /imu/rpy/raw /imu/data_raw /imu/mag -O $BAG_FILE --duration $DURATION &
+rosbag record /tf /ridgeback/imu/rpy/raw /ridgeback/imu/data_raw /ridgeback/imu/mag -O $BAG_FILE --duration $DURATION &
 ROSBAG_PID=$!
 echo "Started rosbag record, duration $DURATION seconds, pid [${ROSBAG_PID}]"
 
@@ -66,4 +66,3 @@ if [[ -r $CAL_FILE ]]; then
     echo "Restart ROS service to begin using saved calibration."
   fi
 fi
-
